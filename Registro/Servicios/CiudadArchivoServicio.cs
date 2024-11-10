@@ -21,6 +21,7 @@ namespace Registro.Servicios
                         escritor.Write(c.ID);
                         escritor.Write(c.Nombre.Length);
                         escritor.Write(c.Nombre.ToCharArray());
+                        escritor.Write(c.Poblacion);
                     }
                 }
             }
@@ -46,11 +47,12 @@ namespace Registro.Servicios
                         int tamaño = lector.ReadInt32();
                         char[] nombreArray = lector.ReadChars(tamaño);
                         string nombre = new string(nombreArray);
+                        int poblacion = lector.ReadInt32();
 
                         Ciudad ciudad = new Ciudad();
                         ciudad.ID = id;
                         ciudad.Nombre = nombre;
-
+                        ciudad.Poblacion = poblacion;
                         ciudades.Add(ciudad);
                     }
                 }

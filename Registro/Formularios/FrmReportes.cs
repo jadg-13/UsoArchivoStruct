@@ -1,5 +1,4 @@
-﻿using Registro.Formularios;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,19 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Registro
+namespace Registro.Formularios
 {
-    public partial class Form1 : Form
+    public partial class FrmReportes : Form
     {
-        public Form1()
+        public FrmReportes()
         {
             InitializeComponent();
         }
 
-        private void ciudadesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FrmReportes_Load(object sender, EventArgs e)
         {
-            CiudadFrm frm = new CiudadFrm();
-            frm.Show();
+
+            this.reportViewer1.RefreshReport();
         }
     }
 }

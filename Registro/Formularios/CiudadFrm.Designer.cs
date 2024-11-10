@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbPoblacion = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,6 +43,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.BtnReporte = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).BeginInit();
@@ -48,6 +51,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbPoblacion);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnAgregar);
             this.groupBox1.Controls.Add(this.tbNombre);
             this.groupBox1.Controls.Add(this.label2);
@@ -55,17 +60,33 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(28, 35);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(461, 203);
+            this.groupBox1.Size = new System.Drawing.Size(461, 244);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
+            // tbPoblacion
+            // 
+            this.tbPoblacion.Location = new System.Drawing.Point(111, 133);
+            this.tbPoblacion.Name = "tbPoblacion";
+            this.tbPoblacion.Size = new System.Drawing.Size(308, 22);
+            this.tbPoblacion.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 133);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Población:";
+            // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(40, 136);
+            this.btnAgregar.Location = new System.Drawing.Point(40, 186);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(379, 41);
-            this.btnAgregar.TabIndex = 4;
+            this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -105,9 +126,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvRegistros);
-            this.groupBox2.Location = new System.Drawing.Point(28, 265);
+            this.groupBox2.Location = new System.Drawing.Point(28, 303);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(387, 393);
+            this.groupBox2.Size = new System.Drawing.Size(387, 322);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Registros Agregados";
@@ -120,13 +141,13 @@
             this.dgvRegistros.Name = "dgvRegistros";
             this.dgvRegistros.RowHeadersWidth = 51;
             this.dgvRegistros.RowTemplate.Height = 24;
-            this.dgvRegistros.Size = new System.Drawing.Size(381, 372);
+            this.dgvRegistros.Size = new System.Drawing.Size(381, 301);
             this.dgvRegistros.TabIndex = 0;
             this.dgvRegistros.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellDoubleClick);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(427, 280);
+            this.btnGuardar.Location = new System.Drawing.Point(427, 318);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 64);
             this.btnGuardar.TabIndex = 2;
@@ -136,7 +157,7 @@
             // 
             // btnCargar
             // 
-            this.btnCargar.Location = new System.Drawing.Point(427, 359);
+            this.btnCargar.Location = new System.Drawing.Point(427, 397);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(75, 61);
             this.btnCargar.TabIndex = 3;
@@ -150,7 +171,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(427, 443);
+            this.btnEliminar.Location = new System.Drawing.Point(427, 481);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 62);
             this.btnEliminar.TabIndex = 4;
@@ -158,11 +179,22 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // BtnReporte
+            // 
+            this.BtnReporte.Location = new System.Drawing.Point(427, 560);
+            this.BtnReporte.Name = "BtnReporte";
+            this.BtnReporte.Size = new System.Drawing.Size(75, 62);
+            this.BtnReporte.TabIndex = 5;
+            this.BtnReporte.Text = "Ver Reporte";
+            this.BtnReporte.UseVisualStyleBackColor = true;
+            this.BtnReporte.Click += new System.EventHandler(this.BtnReporte_Click);
+            // 
             // CiudadFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 702);
+            this.ClientSize = new System.Drawing.Size(544, 648);
+            this.Controls.Add(this.BtnReporte);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.btnGuardar);
@@ -193,5 +225,8 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.TextBox tbPoblacion;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button BtnReporte;
     }
 }

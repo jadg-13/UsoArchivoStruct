@@ -1,4 +1,5 @@
-﻿using Registro.Estructuras;
+﻿using Microsoft.Reporting.WinForms;
+using Registro.Estructuras;
 using Registro.Servicios;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ namespace Registro.Formularios
             Ciudad ciudad = new Ciudad();
             ciudad.ID = int.Parse(tbCodigo.Text);
             ciudad.Nombre = tbNombre.Text;
+            ciudad.Poblacion = int.Parse(tbPoblacion.Text);
 
             int index = ciudades.FindIndex(item => item.ID == ciudadSel.ID );
 
@@ -45,8 +47,11 @@ namespace Registro.Formularios
 
         private void MostrarDatos()
         {
+            //ordenar por nombre
+            ciudades.Sort((x, y) => x.Nombre.CompareTo(y.Nombre));
             dgvRegistros.DataSource = null;
             dgvRegistros.DataSource = ciudades;
+            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -116,12 +121,30 @@ namespace Registro.Formularios
             {
                 ciudadSel.ID = int.Parse(currentRow.Cells[0].Value.ToString());
                 ciudadSel.Nombre = currentRow.Cells[1].Value.ToString();
+                ciudadSel.Poblacion = int.Parse(currentRow.Cells[2].Value.ToString());
+
                 tbCodigo.Text = ciudadSel.ID.ToString();
                 tbNombre.Text = ciudadSel.Nombre;
+                tbPoblacion.Text = ciudadSel.Poblacion.ToString();
             }
 
         }
 
-        
+        private void BtnReporte_Click(object sender, EventArgs e)
+        {
+            ReportDataSource dataSource = new ReportDataSource("DsDatos", ciudades);
+
+            FrmReportes frmReportes = new FrmReportes();
+            frmReportes.reportViewer1.LocalReport.DataSources.Clear();
+            frmReportes.reportViewer1.LocalReport.DataSources.Add(dataSource);
+            //Configurar el archivo de reporte
+            frmReportes.reportViewer1.LocalReport.ReportEmbeddedResource = "Registro.Reportes.RptCiudades.rdlc";
+            //Refrescar el reporte
+            frmReportes.reportViewer1.RefreshReport();
+
+            //Visualizar el formulario
+            frmReportes.ShowDialog();
+
+        }
     }
 }

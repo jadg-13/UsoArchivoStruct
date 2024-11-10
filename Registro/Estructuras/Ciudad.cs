@@ -12,6 +12,8 @@ namespace Registro.Estructuras
         public int ID {  get; set; }
         public string Nombre { get; set; }
 
+        public int Poblacion { get; set; }  
+
 
     }
 }
