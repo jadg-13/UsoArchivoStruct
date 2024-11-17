@@ -1,4 +1,5 @@
 ﻿using Microsoft.Reporting.WinForms;
+using Registro.Dao;
 using Registro.Estructuras;
 using Registro.Servicios;
 using System;
@@ -16,31 +17,37 @@ namespace Registro.Formularios
     public partial class CiudadFrm : Form
     {
 
-        private List<Ciudad> ciudades;
+        private CiudadDao ciudades;
         private Ciudad ciudadSel = new Ciudad();
 
         public CiudadFrm()
         {
             InitializeComponent();
-            ciudades = new List<Ciudad>();
+            ciudades = new CiudadDao();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Ciudad ciudad = new Ciudad();
-            ciudad.ID = int.Parse(tbCodigo.Text);
-            ciudad.Nombre = tbNombre.Text;
-            ciudad.Poblacion = int.Parse(tbPoblacion.Text);
-
-            int index = ciudades.FindIndex(item => item.ID == ciudadSel.ID );
+            try
+            {
+                ciudad.ID = int.Parse(tbCodigo.Text);
+                ciudad.Nombre = tbNombre.Text;
+                ciudad.Poblacion = int.Parse(tbPoblacion.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error al ingresar los datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            int index = ciudades.BuscarIndex(ciudad.ID);
 
             if (index != -1)
             {
-                ciudades[index] = ciudad;
+                ciudades.Actualizar(ciudad);
             }
             else
             {
-                ciudades.Add(ciudad);
+                ciudades.Agregar(ciudad);
             }
             MostrarDatos();
         }
@@ -48,9 +55,9 @@ namespace Registro.Formularios
         private void MostrarDatos()
         {
             //ordenar por nombre
-            ciudades.Sort((x, y) => x.Nombre.CompareTo(y.Nombre));
+            ciudades.Ordenar();
             dgvRegistros.DataSource = null;
-            dgvRegistros.DataSource = ciudades;
+            dgvRegistros.DataSource = ciudades.Listar();
             
         }
 
@@ -67,7 +74,7 @@ namespace Registro.Formularios
 
                     CiudadArchivoServicio archivo = new CiudadArchivoServicio();
 
-                    archivo.GuardarArchivo(ciudades, saveFileDialog1.FileName);
+                    archivo.GuardarArchivo(ciudades.Listar(), saveFileDialog1.FileName);
                     MessageBox.Show("Se ha guardado el archivo", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -90,7 +97,7 @@ namespace Registro.Formularios
                 string ruta = openFileDialog1.FileName;
 
                 CiudadArchivoServicio archivo = new CiudadArchivoServicio();
-                ciudades = archivo.CargarCiudades(ruta);
+                ciudades.SetList ( archivo.CargarCiudades(ruta));
 
                 MostrarDatos();
             }
@@ -104,7 +111,7 @@ namespace Registro.Formularios
         {
             try
             {
-                ciudades.Remove(ciudadSel);
+                ciudades.Eliminar(ciudadSel);
                 MessageBox.Show("Ciudad eliminada...", "Ciudad", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MostrarDatos();
             }
@@ -126,13 +133,14 @@ namespace Registro.Formularios
                 tbCodigo.Text = ciudadSel.ID.ToString();
                 tbNombre.Text = ciudadSel.Nombre;
                 tbPoblacion.Text = ciudadSel.Poblacion.ToString();
+                btnEliminar.Enabled = true;
             }
 
         }
 
         private void BtnReporte_Click(object sender, EventArgs e)
         {
-            ReportDataSource dataSource = new ReportDataSource("DsDatos", ciudades);
+            ReportDataSource dataSource = new ReportDataSource("DsDatos", ciudades.Listar());
 
             FrmReportes frmReportes = new FrmReportes();
             frmReportes.reportViewer1.LocalReport.DataSources.Clear();

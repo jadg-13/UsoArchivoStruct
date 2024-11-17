@@ -141,6 +141,7 @@
             this.dgvRegistros.Name = "dgvRegistros";
             this.dgvRegistros.RowHeadersWidth = 51;
             this.dgvRegistros.RowTemplate.Height = 24;
+            this.dgvRegistros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRegistros.Size = new System.Drawing.Size(381, 301);
             this.dgvRegistros.TabIndex = 0;
             this.dgvRegistros.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellDoubleClick);
@@ -171,6 +172,7 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Enabled = false;
             this.btnEliminar.Location = new System.Drawing.Point(427, 481);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 62);

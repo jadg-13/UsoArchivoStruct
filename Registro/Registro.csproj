@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\CiudadDao.cs" />
     <Compile Include="DataSet\DsCiudades.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

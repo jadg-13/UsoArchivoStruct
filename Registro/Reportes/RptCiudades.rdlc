@@ -19,10 +19,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>2.63737cm</Top>
+        <Top>1.81242cm</Top>
         <Left>13.2042cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
+        <Width>2.79633cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -37,13 +37,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>5.18111cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>5.18111cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>5.18111cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -60,10 +60,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Código</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox13</rd:DefaultName>
@@ -91,10 +95,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Nombre de Ciudades</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox15</rd:DefaultName>
@@ -122,10 +130,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Población</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox17</rd:DefaultName>
@@ -161,7 +173,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>ID</rd:DefaultName>
@@ -217,11 +231,13 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Poblacion.Value</Value>
+                              <Value>=Format(Fields!Poblacion.Value, "###,##0.00")</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Poblacion</rd:DefaultName>
@@ -263,7 +279,7 @@
         <Top>0.43603cm</Top>
         <Left>0.4572cm</Left>
         <Height>1.2cm</Height>
-        <Width>7.5cm</Width>
+        <Width>15.54333cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -272,10 +288,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.44167in</Height>
+    <Height>1.025in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>7.04167in</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
@@ -296,14 +312,48 @@
                   </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox8</rd:DefaultName>
           <Top>0.7112cm</Top>
           <Left>0.49953cm</Left>
           <Height>0.6cm</Height>
-          <Width>15.20467cm</Width>
+          <Width>15.501cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="ExecutionTime">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!ExecutionTime</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>ExecutionTime</rd:DefaultName>
+          <Top>1.48759cm</Top>
+          <Left>10.62187cm</Left>
+          <Height>0.6cm</Height>
+          <Width>5.37867cm</Width>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -333,18 +383,20 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Globals!TotalPages</Value>
+                  <Value>= "Página " &amp; Globals!PageNumber &amp; " de " &amp; Globals!TotalPages</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>TotalPages</rd:DefaultName>
           <Top>0.3937cm</Top>
-          <Left>13.2042cm</Left>
+          <Left>10.62187cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Width>5.37867cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
