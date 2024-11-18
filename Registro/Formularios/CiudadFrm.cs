@@ -153,10 +153,7 @@ namespace Registro.Formularios
             }
         }
 
-        private void btnCargar_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
@@ -190,6 +187,11 @@ namespace Registro.Formularios
                 ciudadSel.Poblacion = int.Parse(dgvRegistros.Rows[index].Cells[2].Value.ToString());
                 
             }
+        }
+
+        private void CiudadFrm_Load(object sender, EventArgs e)
+        {
+            MostrarDatos();
         }
     }
 }

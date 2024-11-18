@@ -1,6 +1,7 @@
 ﻿using Registro.Estructuras;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace Registro.Dao
         public void Agregar(Ciudad ciudad)
         {
             ciudades.Add(ciudad);
+            GuardarArchivo();
         }
 
         public void Actualizar(Ciudad ciudad)
@@ -29,10 +31,13 @@ namespace Registro.Dao
             {
                 ciudades[index] = ciudad;
             }
+            GuardarArchivo();
         }
 
         public List<Ciudad> Listar()
         {
+            ciudades.Clear();
+            CargarArchivo();
             return ciudades;
         }
 
@@ -54,11 +59,60 @@ namespace Registro.Dao
         public void Eliminar(Ciudad ciudad)
         {
             ciudades.Remove(ciudad);
+            GuardarArchivo();
         }
 
         public void Ordenar()
         {
             ciudades.Sort((x, y) => x.Nombre.CompareTo(y.Nombre));
+        }
+
+        private void GuardarArchivo()
+        {
+            string rutaArchivo = "ciudades.dat";
+            using (FileStream archivo = new FileStream(rutaArchivo, FileMode.Create, FileAccess.Write))
+            {
+                using (BinaryWriter escritor = new BinaryWriter(archivo))
+                {
+                    foreach (Ciudad c in ciudades)
+                    {
+                        escritor.Write(c.ID);
+                        escritor.Write(c.Nombre.Length);
+                        escritor.Write(c.Nombre.ToCharArray());
+                        escritor.Write(c.Poblacion);
+                    }
+                }
+            }
+        }
+
+        private void CargarArchivo()
+        {
+            string rutaArchivo = "ciudades.dat";
+            if (!File.Exists(rutaArchivo))
+            {
+                return;
+            }
+
+            using (FileStream archivo = new FileStream(rutaArchivo, FileMode.Open, FileAccess.Read))
+            {
+                using (BinaryReader lector = new BinaryReader(archivo))
+                {
+                    while (archivo.Position != archivo.Length)
+                    {
+                        int id = lector.ReadInt32();
+                        int tamaño = lector.ReadInt32();
+                        char[] nombreArray = lector.ReadChars(tamaño);
+                        string nombre = new string(nombreArray);
+                        int poblacion = lector.ReadInt32();
+
+                        Ciudad ciudad = new Ciudad();
+                        ciudad.ID = id;
+                        ciudad.Nombre = nombre;
+                        ciudad.Poblacion = poblacion;
+                        ciudades.Add(ciudad);
+                    }
+                }
+            }
         }
 
     }
