@@ -144,6 +144,7 @@
     <None Include="Resources\eliminar.png" />
     <None Include="Resources\guardar_archivo.png" />
     <None Include="Resources\cargar_archivo.png" />
+    <None Include="Resources\buscar.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

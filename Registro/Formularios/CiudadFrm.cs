@@ -20,6 +20,7 @@ namespace Registro.Formularios
         private CiudadDao ciudades;
         private Ciudad ciudadSel = new Ciudad();
 
+
         public CiudadFrm()
         {
             InitializeComponent();
@@ -57,8 +58,8 @@ namespace Registro.Formularios
             //ordenar por nombre
             ciudades.Ordenar();
             dgvRegistros.DataSource = null;
-            dgvRegistros.DataSource = ciudades.Listar();
-            
+            dgvRegistros.DataSource = ciudades.Listar("");
+
         }
 
         private void dgvRegistros_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -73,14 +74,14 @@ namespace Registro.Formularios
                 tbCodigo.Text = ciudadSel.ID.ToString();
                 tbNombre.Text = ciudadSel.Nombre;
                 tbPoblacion.Text = ciudadSel.Poblacion.ToString();
-                
+
             }
 
         }
 
         private void ImprimirReporte()
         {
-            ReportDataSource dataSource = new ReportDataSource("DsDatos", ciudades.Listar());
+            ReportDataSource dataSource = new ReportDataSource("DsDatos", ciudades.Listar(tbNombre.Text));
 
             FrmReportes frmReportes = new FrmReportes();
             frmReportes.reportViewer1.LocalReport.DataSources.Clear();
@@ -98,7 +99,7 @@ namespace Registro.Formularios
         {
             try
             {
-                var  opcion = MessageBox.Show($"¿Desea eliminar el registro: {ciudadSel.Nombre}?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var opcion = MessageBox.Show($"¿Desea eliminar el registro: {ciudadSel.Nombre}?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 ciudades.Eliminar(ciudadSel);
                 MessageBox.Show("Ciudad eliminada...", "Ciudad", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MostrarDatos();
@@ -122,7 +123,7 @@ namespace Registro.Formularios
 
                     CiudadArchivoServicio archivo = new CiudadArchivoServicio();
 
-                    archivo.GuardarArchivo(ciudades.Listar(), saveFileDialog1.FileName);
+                    archivo.GuardarArchivo(ciudades.Listar(""), saveFileDialog1.FileName);
                     MessageBox.Show("Se ha guardado el archivo", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -153,7 +154,7 @@ namespace Registro.Formularios
             }
         }
 
-        
+
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
@@ -178,20 +179,26 @@ namespace Registro.Formularios
         private void dgvRegistros_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //Seleccionar la fila
-           // dgvRegistros.Rows[e.RowIndex].Selected = true;
+            // dgvRegistros.Rows[e.RowIndex].Selected = true;
             int index = e.RowIndex;
             if (index != -1)
             {
                 ciudadSel.ID = int.Parse(dgvRegistros.Rows[index].Cells[0].Value.ToString());
                 ciudadSel.Nombre = dgvRegistros.Rows[index].Cells[1].Value.ToString();
                 ciudadSel.Poblacion = int.Parse(dgvRegistros.Rows[index].Cells[2].Value.ToString());
-                
+
             }
         }
 
         private void CiudadFrm_Load(object sender, EventArgs e)
         {
             MostrarDatos();
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            dgvRegistros.DataSource = null;
+            dgvRegistros.DataSource = ciudades.Listar(tbNombre.Text);
         }
     }
 }

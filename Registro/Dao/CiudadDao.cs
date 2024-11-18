@@ -34,12 +34,22 @@ namespace Registro.Dao
             GuardarArchivo();
         }
 
-        public List<Ciudad> Listar()
+        public List<Ciudad> Listar(string dato)
         {
+
             ciudades.Clear();
             CargarArchivo();
-            return ciudades;
+            //verificar si el dato esta vacío
+            if (string.IsNullOrEmpty(dato))
+            {
+                
+                return ciudades;
+            }
+            return ciudades.FindAll(item => item.Nombre.Contains(dato));
+            
         }
+
+      
 
         public void SetList(List<Ciudad> list)
         {

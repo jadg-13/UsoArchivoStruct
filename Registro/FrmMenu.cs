@@ -32,5 +32,19 @@ namespace Registro
                 Application.Exit();
             }
         }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+            Timer timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += new EventHandler(this.timer_Tick);
+            timer.Start();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToString("hh:mm:ss");
+            LblFecha.Text = DateTime.Now.ToLongDateString();
+        }
     }
 }

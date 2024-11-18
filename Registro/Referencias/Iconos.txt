@@ -2,3 +2,4 @@
 <a href="https://www.flaticon.es/iconos-gratis/guardar-el-archivo" title="guardar el archivo iconos">Guardar el archivo iconos creados por Freepik - Flaticon</a>
 <a href="https://www.flaticon.es/iconos-gratis/eliminar" title="eliminar iconos">Eliminar iconos creados por Freepik - Flaticon</a>
 <a href="https://www.flaticon.es/iconos-gratis/impresion" title="impresión iconos">Impresión iconos creados por bqlqn - Flaticon</a>
+<a href="https://www.flaticon.es/iconos-gratis/informacion" title="información iconos">Información iconos creados por Freepik - Flaticon</a>
