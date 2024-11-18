@@ -110,6 +110,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reportes\RptCiudades.rdlc" />
     <None Include="DataSet\DsCiudades.xsc">
@@ -138,6 +139,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Referencias\Iconos.txt" />
+    <None Include="Resources\imprimir.png" />
+    <None Include="Resources\eliminar.png" />
+    <None Include="Resources\guardar_archivo.png" />
+    <None Include="Resources\cargar_archivo.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
