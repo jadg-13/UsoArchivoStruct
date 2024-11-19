@@ -44,11 +44,10 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.BtnCargar = new System.Windows.Forms.ToolStripButton();
-            this.BtnGuardar = new System.Windows.Forms.ToolStripButton();
             this.BtnImprimir = new System.Windows.Forms.ToolStripButton();
-            this.BtnEliminar = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnBuscar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.BtnEliminar = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).BeginInit();
@@ -171,8 +170,7 @@
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.BtnCargar,
-            this.BtnGuardar,
+            this.toolStripButton1,
             this.BtnImprimir,
             this.BtnBuscar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -181,44 +179,15 @@
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // BtnCargar
-            // 
-            this.BtnCargar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BtnCargar.Image = global::Registro.Properties.Resources.cargar_archivo;
-            this.BtnCargar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnCargar.Name = "BtnCargar";
-            this.BtnCargar.Size = new System.Drawing.Size(29, 28);
-            this.BtnCargar.Text = "Cargar";
-            this.BtnCargar.Click += new System.EventHandler(this.BtnCargar_Click_1);
-            // 
-            // BtnGuardar
-            // 
-            this.BtnGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BtnGuardar.Image = global::Registro.Properties.Resources.guardar_archivo;
-            this.BtnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(29, 28);
-            this.BtnGuardar.Text = "Guardar";
-            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
-            // 
             // BtnImprimir
             // 
             this.BtnImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.BtnImprimir.Image = global::Registro.Properties.Resources.imprimir;
             this.BtnImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BtnImprimir.Name = "BtnImprimir";
-            this.BtnImprimir.Size = new System.Drawing.Size(29, 28);
+            this.BtnImprimir.Size = new System.Drawing.Size(29, 24);
             this.BtnImprimir.Text = "Imprimir";
             this.BtnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
-            // 
-            // BtnEliminar
-            // 
-            this.BtnEliminar.Image = global::Registro.Properties.Resources.eliminar;
-            this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Delete)));
-            this.BtnEliminar.Size = new System.Drawing.Size(250, 26);
-            this.BtnEliminar.Text = "Quitar registro";
-            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnBuscar
             // 
@@ -229,6 +198,25 @@
             this.BtnBuscar.Size = new System.Drawing.Size(29, 24);
             this.BtnBuscar.Text = "Buscar";
             this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::Registro.Properties.Resources.nuevo;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButton1.Text = "Limpiar";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // BtnEliminar
+            // 
+            this.BtnEliminar.Image = global::Registro.Properties.Resources.eliminar;
+            this.BtnEliminar.Name = "BtnEliminar";
+            this.BtnEliminar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Delete)));
+            this.BtnEliminar.Size = new System.Drawing.Size(250, 26);
+            this.BtnEliminar.Text = "Quitar registro";
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // CiudadFrm
             // 
@@ -270,10 +258,9 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem BtnEliminar;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton BtnCargar;
-        private System.Windows.Forms.ToolStripButton BtnGuardar;
         private System.Windows.Forms.ToolStripButton BtnImprimir;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripButton BtnBuscar;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

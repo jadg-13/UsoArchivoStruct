@@ -161,15 +161,6 @@ namespace Registro.Formularios
             QuitarRegistro();
         }
 
-        private void BtnCargar_Click_1(object sender, EventArgs e)
-        {
-            CargarDatos();
-        }
-
-        private void BtnGuardar_Click(object sender, EventArgs e)
-        {
-            GuardarDatos();
-        }
 
         private void BtnImprimir_Click(object sender, EventArgs e)
         {
@@ -199,6 +190,19 @@ namespace Registro.Formularios
         {
             dgvRegistros.DataSource = null;
             dgvRegistros.DataSource = ciudades.Listar(tbNombre.Text);
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void Limpiar()
+        {
+            tbCodigo.Text = "";
+            tbNombre.Text = "";
+            tbPoblacion.Text = "";
+            tbCodigo.Focus();
         }
     }
 }
