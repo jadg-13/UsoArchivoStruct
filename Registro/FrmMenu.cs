@@ -1,4 +1,6 @@
-﻿using Registro.Formularios;
+﻿using Registro.Dao;
+using Registro.Estructuras;
+using Registro.Formularios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +41,23 @@ namespace Registro
             timer.Interval = 1000;
             timer.Tick += new EventHandler(this.timer_Tick);
             timer.Start();
+            UltimosRegistros();
+        }
+
+        //Ver ultimos 5 registros
+        private void UltimosRegistros()
+        {
+            CiudadDao dao = new CiudadDao();
+            List<Ciudad> ciudades = new List<Ciudad>();
+            ciudades = dao.Listar("");
+
+            foreach(Ciudad c in ciudades)
+            {
+                LstUltReg.Items.Add(c.Nombre);
+            }
+            
+        
+
         }
 
         private void timer_Tick(object sender, EventArgs e)

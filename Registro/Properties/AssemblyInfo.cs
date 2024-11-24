@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
 [assembly: AssemblyTitle("Registro")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Aplicación sencilla que permite registrar los datos de una ciudad (Codigo, nombres y población)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("HP")]
-[assembly: AssemblyProduct("Registro")]
-[assembly: AssemblyCopyright("Copyright © HP 2024")]
+[assembly: AssemblyCompany("jadg13.org")]
+[assembly: AssemblyProduct("Registro - Ciudad")]
+[assembly: AssemblyCopyright("Copyright © jadg13 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

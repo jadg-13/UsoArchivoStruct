@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,6 +37,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.LblFecha = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblHora = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LstUltReg = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,13 +59,14 @@
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
-            this.archivoToolStripMenuItem.Text = "Archivo";
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
+            this.archivoToolStripMenuItem.Text = "&Archivo";
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
+            this.salirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -72,8 +75,8 @@
             this.catalogoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ciudadesToolStripMenuItem});
             this.catalogoToolStripMenuItem.Name = "catalogoToolStripMenuItem";
-            this.catalogoToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
-            this.catalogoToolStripMenuItem.Text = "Catalogos";
+            this.catalogoToolStripMenuItem.Size = new System.Drawing.Size(90, 26);
+            this.catalogoToolStripMenuItem.Text = "&Catalogos";
             // 
             // ciudadesToolStripMenuItem
             // 
@@ -88,30 +91,42 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.LblFecha,
             this.lblHora});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 426);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 654);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.statusStrip1.Size = new System.Drawing.Size(800, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // LblFecha
             // 
             this.LblFecha.Name = "LblFecha";
-            this.LblFecha.Size = new System.Drawing.Size(0, 18);
+            this.LblFecha.Size = new System.Drawing.Size(0, 16);
             // 
             // lblHora
             // 
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(0, 18);
+            this.lblHora.Size = new System.Drawing.Size(0, 16);
+            // 
+            // LstUltReg
+            // 
+            this.LstUltReg.Dock = System.Windows.Forms.DockStyle.Right;
+            this.LstUltReg.FormattingEnabled = true;
+            this.LstUltReg.ItemHeight = 16;
+            this.LstUltReg.Location = new System.Drawing.Point(584, 30);
+            this.LstUltReg.Name = "LstUltReg";
+            this.LstUltReg.Size = new System.Drawing.Size(216, 624);
+            this.LstUltReg.TabIndex = 2;
             // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 676);
+            this.Controls.Add(this.LstUltReg);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMenu";
             this.Text = "Menu";
@@ -136,6 +151,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel LblFecha;
         private System.Windows.Forms.ToolStripStatusLabel lblHora;
+        private System.Windows.Forms.ListBox LstUltReg;
     }
 }
 
