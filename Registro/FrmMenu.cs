@@ -44,7 +44,7 @@ namespace Registro
             UltimosRegistros();
         }
 
-        //Ver ultimos 5 registros
+        
         private void UltimosRegistros()
         {
             CiudadDao dao = new CiudadDao();
@@ -53,10 +53,8 @@ namespace Registro
 
             foreach(Ciudad c in ciudades)
             {
-                LstUltReg.Items.Add(c.Nombre);
+                LstUltReg.Items.Add(c.Nombre + " - " + c.Poblacion.ToString());
             }
-            
-        
 
         }
 
