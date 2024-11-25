@@ -147,6 +147,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reportes\RptCiudades.rdlc" />
+    <EmbeddedResource Include="Reportes\RptPoblacion.rdlc" />
     <None Include="DataSet\DsCiudades.xsc">
       <DependentUpon>DsCiudades.xsd</DependentUpon>
     </None>

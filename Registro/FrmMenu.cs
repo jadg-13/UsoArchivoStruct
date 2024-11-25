@@ -1,4 +1,6 @@
-﻿using Registro.Dao;
+﻿using Microsoft.Reporting.WinForms;
+using Registro.Dao;
+using Registro.DataSet;
 using Registro.Estructuras;
 using Registro.Formularios;
 using System;
@@ -44,7 +46,7 @@ namespace Registro
             UltimosRegistros();
         }
 
-        
+       
         private void UltimosRegistros()
         {
             CiudadDao dao = new CiudadDao();
@@ -62,7 +64,30 @@ namespace Registro
         {
             lblHora.Text = DateTime.Now.ToString("hh:mm:ss");
             LblFecha.Text = DateTime.Now.ToLongDateString();
-            UltimosRegistros();
+            
+        }
+
+        private void mostrarPoblaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImprimirReporte();
+        }
+
+        private void ImprimirReporte()
+        {
+            CiudadDao ciudades = new CiudadDao();
+            
+            ReportDataSource dataSource = new ReportDataSource("DsDatos", ciudades.OrdenarPoblacion());
+
+            FrmReportes frmReportes = new FrmReportes();
+            frmReportes.reportViewer1.LocalReport.DataSources.Clear();
+            frmReportes.reportViewer1.LocalReport.DataSources.Add(dataSource);
+            //Configurar el archivo de reporte
+            frmReportes.reportViewer1.LocalReport.ReportEmbeddedResource = "Registro.Reportes.RptPoblacion.rdlc";
+            //Refrescar el reporte
+            frmReportes.reportViewer1.RefreshReport();
+
+            //Visualizar el formulario
+            frmReportes.ShowDialog();
         }
     }
 }

@@ -38,6 +38,8 @@
             this.LblFecha = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.LstUltReg = new System.Windows.Forms.ListBox();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mostrarPoblaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -47,10 +49,11 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
-            this.catalogoToolStripMenuItem});
+            this.catalogoToolStripMenuItem,
+            this.reportesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -59,7 +62,7 @@
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.archivoToolStripMenuItem.Text = "&Archivo";
             // 
             // salirToolStripMenuItem
@@ -75,7 +78,7 @@
             this.catalogoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ciudadesToolStripMenuItem});
             this.catalogoToolStripMenuItem.Name = "catalogoToolStripMenuItem";
-            this.catalogoToolStripMenuItem.Size = new System.Drawing.Size(90, 26);
+            this.catalogoToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.catalogoToolStripMenuItem.Text = "&Catalogos";
             // 
             // ciudadesToolStripMenuItem
@@ -113,10 +116,25 @@
             this.LstUltReg.Dock = System.Windows.Forms.DockStyle.Right;
             this.LstUltReg.FormattingEnabled = true;
             this.LstUltReg.ItemHeight = 16;
-            this.LstUltReg.Location = new System.Drawing.Point(584, 30);
+            this.LstUltReg.Location = new System.Drawing.Point(584, 28);
             this.LstUltReg.Name = "LstUltReg";
-            this.LstUltReg.Size = new System.Drawing.Size(216, 624);
+            this.LstUltReg.Size = new System.Drawing.Size(216, 626);
             this.LstUltReg.TabIndex = 2;
+            // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mostrarPoblaciónToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // mostrarPoblaciónToolStripMenuItem
+            // 
+            this.mostrarPoblaciónToolStripMenuItem.Name = "mostrarPoblaciónToolStripMenuItem";
+            this.mostrarPoblaciónToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.mostrarPoblaciónToolStripMenuItem.Text = "Mostrar población";
+            this.mostrarPoblaciónToolStripMenuItem.Click += new System.EventHandler(this.mostrarPoblaciónToolStripMenuItem_Click);
             // 
             // FrmMenu
             // 
@@ -152,6 +170,8 @@
         private System.Windows.Forms.ToolStripStatusLabel LblFecha;
         private System.Windows.Forms.ToolStripStatusLabel lblHora;
         private System.Windows.Forms.ListBox LstUltReg;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mostrarPoblaciónToolStripMenuItem;
     }
 }
 

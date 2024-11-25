@@ -77,6 +77,17 @@ namespace Registro.Dao
             ciudades.Sort((x, y) => x.Nombre.CompareTo(y.Nombre));
         }
 
+        public List<Ciudad> OrdenarPoblacion()
+        {
+            ciudades.Clear();
+            CargarArchivo();
+            //verificar si el dato esta vacío
+           
+            ciudades.Sort((x, y) => x.Poblacion.CompareTo(y.Poblacion));
+            return ciudades;
+        }
+
+
         private void GuardarArchivo()
         {
             string rutaArchivo = "ciudades.dat";
