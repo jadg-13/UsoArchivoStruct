@@ -50,8 +50,8 @@ namespace Registro
             CiudadDao dao = new CiudadDao();
             List<Ciudad> ciudades = new List<Ciudad>();
             ciudades = dao.Listar("");
-
-            foreach(Ciudad c in ciudades)
+            LstUltReg.Items.Clear();
+            foreach (Ciudad c in ciudades)
             {
                 LstUltReg.Items.Add(c.Nombre + " - " + c.Poblacion.ToString());
             }
@@ -62,6 +62,7 @@ namespace Registro
         {
             lblHora.Text = DateTime.Now.ToString("hh:mm:ss");
             LblFecha.Text = DateTime.Now.ToLongDateString();
+            UltimosRegistros();
         }
     }
 }
